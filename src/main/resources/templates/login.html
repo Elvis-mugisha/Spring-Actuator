@@ -1,0 +1,36 @@
+<!-- src/main/resources/templates/login.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login Page</title>
+</head>
+<body>
+<h2>Login</h2>
+<form th:action="@{/login}" method="post" onsubmit="logInputs(event)">
+    <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+    </div>
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+    </div>
+    <button type="submit">Login</button>
+</form>
+
+<script>
+    // Function to log input values when the form is submitted
+    function logInputs(event) {
+        // Prevent the form from submitting immediately
+        event.preventDefault();
+
+        // Log the input values to the console
+        console.log("Username: " + document.getElementById('username').value);
+        console.log("Password: " + document.getElementById('password').value);
+
+        // Submit the form after logging
+        event.target.submit();
+    }
+</script>
+</body>
+</html>
